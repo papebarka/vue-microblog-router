@@ -1,8 +1,11 @@
 <script setup>
 import { reactive } from 'vue'
+import { useRouter } from 'vue-router'
 import { usePosts } from '../data/usePosts.js'
 
 const postStore = usePosts()
+
+const router = useRouter()
 
 const newPost = reactive(
     {
@@ -12,11 +15,13 @@ const newPost = reactive(
 )
 
 const submit = () => {
+    const id = postStore.posts.value.length + 1
     postStore.addPost({
-        id: postStore.posts.value.length + 1,
+        id: id,
         title: newPost.title,
         content: newPost.content
     })
+    router.push(`/posts/${id}`)
 }
 </script>
 
