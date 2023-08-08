@@ -1,9 +1,9 @@
 <script setup>
-//import MyVue from '../components/'
+import Post from '../components/Post.vue'
 </script>
 
 <template>
   <main>
-    Home
+    <post />
   </main>
 </template>
